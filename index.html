@@ -1,0 +1,1103 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🏙️ Staff GTA RP</title>
+    <style>
+        /* ============================================
+                   RESET E BASE
+                ============================================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0a0a0a;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 20px;
+            background-image: radial-gradient(ellipse at 50% 0%, #1a1200 0%, #0a0a0a 70%);
+        }
+
+        .container {
+            max-width: 1300px;
+            width: 100%;
+            background: linear-gradient(180deg, #141414 0%, #0d0d0d 100%);
+            border-radius: 20px;
+            padding: 28px;
+            border: 1px solid rgba(255, 215, 0, 0.15);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8), 0 0 40px rgba(255, 215, 0, 0.03);
+        }
+
+        /* ============================================
+                   BANNER (IMAGEM FIXA)
+                ============================================ */
+        .banner {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            margin-bottom: 28px;
+            border: 1px solid rgba(255, 215, 0, 0.15);
+        }
+
+        .banner img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.4s;
+        }
+
+        .banner img:hover {
+            transform: scale(1.02);
+        }
+
+        .banner-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 30px 28px 20px;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.85));
+        }
+
+        .banner-overlay h1 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #FFD700, #F4A900, #B8860B);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 2px;
+        }
+
+        .banner-overlay p {
+            color: rgba(255, 215, 0, 0.5);
+            font-size: 0.75rem;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            -webkit-text-fill-color: rgba(255, 215, 0, 0.5);
+            margin-top: 2px;
+        }
+
+        /* ============================================
+                   HEADER
+                ============================================ */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .header-left h2 {
+            color: #fff;
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+
+        .header-left h2 i {
+            color: #FFD700;
+            margin-right: 10px;
+        }
+
+        .staff-counter {
+            background: rgba(255, 215, 0, 0.1);
+            border: 1px solid rgba(255, 215, 0, 0.15);
+            border-radius: 30px;
+            padding: 4px 16px;
+            color: #FFD700;
+            font-size: 0.8rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .staff-counter span {
+            font-size: 1rem;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        /* ============================================
+                   BOTÕES
+                ============================================ */
+        .btn {
+            padding: 10px 22px;
+            border: none;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 0.75rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+        }
+
+        .btn-gold {
+            background: linear-gradient(135deg, #FFD700, #F4A900);
+            color: #0a0a0a;
+            box-shadow: 0 4px 20px rgba(255, 215, 0, 0.2);
+        }
+        .btn-gold:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(255, 215, 0, 0.35);
+        }
+
+        .btn-blue {
+            background: linear-gradient(135deg, #3498DB, #2980B9);
+            color: #fff;
+            box-shadow: 0 4px 20px rgba(52, 152, 219, 0.2);
+        }
+        .btn-blue:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(52, 152, 219, 0.35);
+        }
+
+        .btn-green {
+            background: linear-gradient(135deg, #2ECC71, #27AE60);
+            color: #fff;
+            box-shadow: 0 4px 20px rgba(46, 204, 113, 0.2);
+        }
+        .btn-green:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(46, 204, 113, 0.35);
+        }
+
+        .btn-purple {
+            background: linear-gradient(135deg, #9B59B6, #8E44AD);
+            color: #fff;
+            box-shadow: 0 4px 20px rgba(155, 89, 182, 0.2);
+        }
+        .btn-purple:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(155, 89, 182, 0.35);
+        }
+
+        .btn-danger {
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            color: #fff;
+            padding: 6px 14px;
+            font-size: 0.7rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.15);
+        }
+        .btn-danger:hover {
+            transform: scale(1.08);
+            box-shadow: 0 8px 25px rgba(231, 76, 60, 0.3);
+        }
+
+        /* ============================================
+                   TABELA
+                ============================================ */
+        .table-wrapper {
+            overflow-x: auto;
+            border-radius: 14px;
+            border: 1px solid rgba(255, 215, 0, 0.06);
+            background: rgba(255, 255, 255, 0.015);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 800px;
+        }
+
+        thead {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.06), rgba(255, 215, 0, 0.02));
+            border-bottom: 2px solid rgba(255, 215, 0, 0.08);
+        }
+
+        thead th {
+            padding: 14px 18px;
+            text-align: left;
+            color: #FFD700;
+            font-weight: 700;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+        }
+
+        thead th:last-child {
+            text-align: center;
+        }
+
+        tbody tr {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+            transition: background 0.3s;
+        }
+
+        tbody tr:hover {
+            background: rgba(255, 215, 0, 0.04);
+        }
+
+        tbody tr:last-child {
+            border-bottom: none;
+        }
+
+        tbody td {
+            padding: 10px 18px;
+            color: #c0c0c0;
+            font-size: 0.9rem;
+            vertical-align: middle;
+        }
+
+        tbody td:last-child {
+            text-align: center;
+        }
+
+        /* ============================================
+                   INPUTS E SELECTS
+                ============================================ */
+        select,
+        input[type="text"] {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 8px;
+            padding: 7px 12px;
+            color: #fff;
+            font-size: 0.85rem;
+            width: 100%;
+            transition: all 0.3s;
+            font-family: inherit;
+        }
+
+        select:hover,
+        input[type="text"]:hover {
+            border-color: rgba(255, 215, 0, 0.25);
+        }
+
+        select:focus,
+        input[type="text"]:focus {
+            outline: none;
+            border-color: #FFD700;
+            box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.08);
+            background: rgba(255, 215, 0, 0.04);
+        }
+
+        select option {
+            background: #1a1a1a;
+            color: #fff;
+        }
+
+        /* ============================================
+                   BADGE PERMISSÃO
+                ============================================ */
+        .perm-badge {
+            display: inline-block;
+            margin-top: 4px;
+            font-size: 0.55rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #2ECC71;
+            background: rgba(46, 204, 113, 0.12);
+            padding: 2px 12px;
+            border-radius: 20px;
+            border: 1px solid rgba(46, 204, 113, 0.1);
+        }
+
+        /* ============================================
+                   EMPTY STATE
+                ============================================ */
+        .empty-state {
+            text-align: center;
+            padding: 50px 20px;
+            color: rgba(255, 255, 255, 0.15);
+        }
+
+        .empty-state i {
+            font-size: 3rem;
+            color: rgba(255, 215, 0, 0.1);
+            display: block;
+            margin-bottom: 12px;
+        }
+
+        .empty-state p {
+            font-size: 0.95rem;
+        }
+
+        /* ============================================
+                   MODAL DE CONFIRMAÇÃO
+                ============================================ */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(8px);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 999;
+            animation: modalFadeIn 0.3s ease-out;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .modal {
+            background: linear-gradient(180deg, #1a1a1a, #0d0d0d);
+            border-radius: 20px;
+            padding: 36px 40px 30px;
+            max-width: 480px;
+            width: 90%;
+            border: 1px solid rgba(255, 215, 0, 0.15);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.9);
+            text-align: center;
+        }
+
+        .modal .modal-icon {
+            font-size: 3.5rem;
+            color: #e74c3c;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .modal h3 {
+            color: #fff;
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .modal .modal-sub {
+            color: #a0a0a0;
+            font-size: 0.9rem;
+            margin-bottom: 6px;
+        }
+
+        .modal .modal-name {
+            color: #FFD700;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .modal .modal-checkbox {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin: 20px 0 24px;
+            color: #888;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .modal .modal-checkbox:hover {
+            color: #fff;
+        }
+
+        .modal .modal-checkbox input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            accent-color: #FFD700;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        .modal .modal-actions {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+        }
+
+        .modal .modal-actions .btn {
+            min-width: 120px;
+            justify-content: center;
+        }
+
+        .btn-cancel {
+            background: rgba(255, 255, 255, 0.06);
+            color: #aaa;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .btn-cancel:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+        }
+
+        .btn-confirm-danger {
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            color: #fff;
+            box-shadow: 0 4px 20px rgba(231, 76, 60, 0.25);
+        }
+        .btn-confirm-danger:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(231, 76, 60, 0.4);
+        }
+
+        /* ============================================
+                   TOAST
+                ============================================ */
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            padding: 14px 28px;
+            border-radius: 12px;
+            background: #1a1a1a;
+            border: 1px solid rgba(255, 215, 0, 0.12);
+            box-shadow: 0 12px 48px rgba(0, 0, 0, 0.6);
+            color: #fff;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            backdrop-filter: blur(12px);
+        }
+
+        .toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .toast i {
+            font-size: 1.2rem;
+        }
+
+        .toast-success i {
+            color: #2ECC71;
+        }
+        .toast-error i {
+            color: #e74c3c;
+        }
+        .toast-info i {
+            color: #3498DB;
+        }
+        .toast-warning i {
+            color: #F1C40F;
+        }
+
+        /* ============================================
+                   FILE INPUT OCULTO
+                ============================================ */
+        #fileInput {
+            display: none;
+        }
+
+        /* ============================================
+                   SCROLLBAR
+                ============================================ */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.02);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, #FFD700, #F4A900);
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #FFD700;
+        }
+
+        /* ============================================
+                   RESPONSIVO
+                ============================================ */
+        @media (max-width: 768px) {
+            .container {
+                padding: 16px;
+            }
+            .banner img {
+                height: 130px;
+            }
+            .banner-overlay h1 {
+                font-size: 1.4rem;
+            }
+            .banner-overlay p {
+                font-size: 0.55rem;
+                letter-spacing: 3px;
+            }
+            .header {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .header-actions {
+                justify-content: center;
+            }
+            .btn {
+                padding: 8px 14px;
+                font-size: 0.65rem;
+            }
+            thead th {
+                padding: 10px 12px;
+                font-size: 0.6rem;
+            }
+            tbody td {
+                padding: 8px 12px;
+                font-size: 0.8rem;
+            }
+            select,
+            input[type="text"] {
+                padding: 5px 8px;
+                font-size: 0.75rem;
+            }
+            .modal {
+                padding: 28px 20px 24px;
+            }
+            .modal .modal-actions {
+                flex-direction: column;
+                align-items: center;
+            }
+            .modal .modal-actions .btn {
+                min-width: 100%;
+            }
+            .toast {
+                bottom: 16px;
+                right: 16px;
+                left: 16px;
+                padding: 12px 18px;
+                font-size: 0.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .banner img {
+                height: 90px;
+            }
+            .banner-overlay h1 {
+                font-size: 1.1rem;
+            }
+            .banner-overlay p {
+                font-size: 0.45rem;
+                letter-spacing: 2px;
+            }
+            .header-left h2 {
+                font-size: 1rem;
+            }
+            .staff-counter {
+                font-size: 0.65rem;
+                padding: 2px 12px;
+            }
+            .btn {
+                padding: 6px 10px;
+                font-size: 0.55rem;
+                gap: 4px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ============================================
+    TOAST
+    ============================================ -->
+    <div id="toast" class="toast">
+        <i id="toastIcon" class="fas fa-check-circle"></i>
+        <span id="toastMessage">Mensagem</span>
+    </div>
+
+    <!-- ============================================
+    MODAL DE CONFIRMAÇÃO
+    ============================================ -->
+    <div class="modal-overlay" id="modalExcluir">
+        <div class="modal">
+            <span class="modal-icon">🗑️</span>
+            <h3>Remover Staff</h3>
+            <p class="modal-sub">Tem certeza que deseja remover</p>
+            <p class="modal-name" id="modalNomeStaff">—</p>
+            <p class="modal-sub" style="margin-top:4px; font-size:0.8rem; color:#666;">Esta ação não pode ser desfeita.</p>
+
+            <label class="modal-checkbox">
+                <input type="checkbox" id="checkNaoMostrar">
+                Não mostrar novamente
+            </label>
+
+            <div class="modal-actions">
+                <button class="btn btn-cancel" onclick="cancelarExclusao()">Cancelar</button>
+                <button class="btn btn-confirm-danger" onclick="confirmarExclusao()">
+                    <i class="fas fa-trash-alt"></i> Remover
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================
+    CONTAINER PRINCIPAL
+    ============================================ -->
+    <div class="container">
+
+        <!-- BANNER COM IMAGEM FIXA -->
+        <div class="banner">
+            <img src="https://cdn.discordapp.com/attachments/1527058170311082136/1528291739121487922/a7ea16ba-69d1-425f-bd4f-f9f5b2264cd6.png?ex=6a5dc418&is=6a5c7298&hm=457cf9a7f2e914f845d04e19b994d345240ee08ebe0c4cc37660f518c32f0014&" alt="Banner GTA RP">
+            <div class="banner-overlay">
+                <h1>🏙️ STAFF GTA RP</h1>
+                <p>✦ Gerenciamento Profissional ✦</p>
+            </div>
+        </div>
+
+        <!-- HEADER -->
+        <div class="header">
+            <div class="header-left">
+                <h2><i class="fas fa-users"></i> Membros da Staff</h2>
+                <div class="staff-counter">
+                    <i class="fas fa-user"></i>
+                    <span id="contadorStaff">0</span>
+                </div>
+            </div>
+            <div class="header-actions">
+                <button class="btn btn-gold" onclick="adicionarLinha()">
+                    <i class="fas fa-plus"></i> Adicionar
+                </button>
+                <button class="btn btn-blue" onclick="exportarCSV()">
+                    <i class="fas fa-download"></i> Exportar
+                </button>
+                <button class="btn btn-green" onclick="document.getElementById('fileInput').click()">
+                    <i class="fas fa-upload"></i> Importar
+                </button>
+                <button class="btn btn-purple" onclick="resetarDados()">
+                    <i class="fas fa-undo"></i> Resetar
+                </button>
+                <input type="file" id="fileInput" accept=".csv" onchange="importarCSV(event)">
+            </div>
+        </div>
+
+        <!-- TABELA -->
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th><i class="fas fa-tag"></i> Cargo</th>
+                        <th><i class="fas fa-user"></i> Nome</th>
+                        <th><i class="fab fa-discord"></i> ID Discord</th>
+                        <th><i class="fas fa-clock"></i> Trabalho/Dia</th>
+                        <th><i class="fas fa-hourglass-half"></i> Total</th>
+                        <th><i class="fas fa-cog"></i> Ações</th>
+                    </tr>
+                </thead>
+                <tbody id="tabelaStaff"></tbody>
+            </table>
+        </div>
+
+        <!-- FOOTER -->
+        <div style="margin-top: 24px; text-align: center; color: rgba(255,255,255,0.06); font-size: 0.7rem; letter-spacing: 1.5px; padding-top: 16px; border-top: 1px solid rgba(255,215,0,0.04);">
+            ⚡ Sistema de Staff GTA RP • v3.0
+        </div>
+
+    </div>
+
+    <!-- ============================================
+    FONT AWESOME (ÍCONES)
+    ============================================ -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- ============================================
+    JAVASCRIPT
+    ============================================ -->
+    <script>
+        // ============================================
+        // CONFIGURAÇÕES
+        // ============================================
+        const DADOS_PADRAO = [
+            { cargo: "Owner", nome: "João Silva", id: "<@123456789012345>", dia: "8h", total: "40h" },
+            { cargo: "Dev", nome: "Maria Santos", id: "<@234567890123456>", dia: "6h", total: "30h" },
+            { cargo: "Dir.Geral", nome: "Carlos Lima", id: "<@345678901234567>", dia: "8h", total: "32h" },
+            { cargo: "Coordenador", nome: "Ana Costa", id: "<@456789012345678>", dia: "7h", total: "35h" },
+            { cargo: "Admin", nome: "Pedro Rocha", id: "<@567890123456789>", dia: "8h", total: "40h" },
+            { cargo: "Moderador", nome: "Julia Reis", id: "<@678901234567890>", dia: "5h", total: "25h" },
+            { cargo: "Moderador", nome: "Lucas Mendes", id: "<@789012345678901>", dia: "6h", total: "28h" },
+            { cargo: "Suporte", nome: "Carla Souza", id: "<@890123456789012>", dia: "4h", total: "20h" }
+        ];
+
+        let staffData = [];
+        let indiceExcluir = null;
+        let nomeExcluir = '';
+
+        // ============================================
+        // TOAST
+        // ============================================
+        function showToast(message, type = 'success') {
+            const toast = document.getElementById('toast');
+            const icon = document.getElementById('toastIcon');
+            const msg = document.getElementById('toastMessage');
+
+            const icons = {
+                success: 'fa-check-circle',
+                error: 'fa-times-circle',
+                warning: 'fa-exclamation-triangle',
+                info: 'fa-info-circle'
+            };
+
+            toast.className = `toast toast-${type}`;
+            icon.className = `fas ${icons[type] || icons.success}`;
+            msg.textContent = message;
+
+            toast.classList.add('show');
+            clearTimeout(toast._timeout);
+            toast._timeout = setTimeout(() => toast.classList.remove('show'), 3000);
+        }
+
+        // ============================================
+        // RENDERIZAR TABELA
+        // ============================================
+        function renderizarTabela() {
+            const tbody = document.getElementById('tabelaStaff');
+            const counter = document.getElementById('contadorStaff');
+
+            tbody.innerHTML = '';
+            counter.textContent = staffData.length;
+
+            if (staffData.length === 0) {
+                tbody.innerHTML = `
+                    <tr>
+                        <td colspan="6">
+                            <div class="empty-state">
+                                <i class="fas fa-users-slash"></i>
+                                <p>Nenhum membro cadastrado na staff.</p>
+                                <p style="font-size:0.75rem; color: rgba(255,255,255,0.06); margin-top:6px;">
+                                    Clique em <strong style="color:#FFD700;">Adicionar</strong> para começar
+                                </p>
+                            </div>
+                        </td>
+                    </tr>
+                `;
+                return;
+            }
+
+            staffData.forEach((staff, index) => {
+                const tr = document.createElement('tr');
+                tr.id = `linha-${index}`;
+                tr.style.animation = `fadeIn 0.25s ease-out ${index * 0.04}s both`;
+
+                tr.innerHTML = `
+                    <td>
+                        <select class="cargo-select" data-index="${index}">
+                            <option value="Owner" ${staff.cargo === 'Owner' ? 'selected' : ''}>👑 Owner</option>
+                            <option value="Dev" ${staff.cargo === 'Dev' ? 'selected' : ''}>💻 Dev</option>
+                            <option value="Dir.Geral" ${staff.cargo === 'Dir.Geral' ? 'selected' : ''}>📋 Dir.Geral</option>
+                            <option value="Coordenador" ${staff.cargo === 'Coordenador' ? 'selected' : ''}>📌 Coordenador</option>
+                            <option value="Admin" ${staff.cargo === 'Admin' ? 'selected' : ''}>🛡️ Admin</option>
+                            <option value="Moderador" ${staff.cargo === 'Moderador' ? 'selected' : ''}>🔧 Moderador</option>
+                            <option value="Suporte" ${staff.cargo === 'Suporte' ? 'selected' : ''}>🆘 Suporte</option>
+                        </select>
+                        <br>
+                        <span class="perm-badge"><i class="fas fa-edit"></i> Pode editar</span>
+                    </td>
+                    <td><input type="text" class="nome-input" data-index="${index}" value="${staff.nome}" placeholder="Nome do staff"></td>
+                    <td><input type="text" class="id-input" data-index="${index}" value="${staff.id}" placeholder="<@ID>"></td>
+                    <td><input type="text" class="dia-input" data-index="${index}" value="${staff.dia}" placeholder="Ex: 8h"></td>
+                    <td><input type="text" class="total-input" data-index="${index}" value="${staff.total}" placeholder="Ex: 40h"></td>
+                    <td>
+                        <button class="btn btn-danger" onclick="abrirModalExcluir(${index})" title="Remover staff">
+                            <i class="fas fa-trash-alt"></i>
+                        </button>
+                    </td>
+                `;
+                tbody.appendChild(tr);
+            });
+
+            // Eventos dos selects e inputs
+            document.querySelectorAll('.cargo-select').forEach(el => {
+                el.addEventListener('change', function() {
+                    const idx = parseInt(this.dataset.index);
+                    staffData[idx].cargo = this.value;
+                    salvarDados();
+                    showToast(`Cargo alterado para ${this.value}`, 'info');
+                });
+            });
+
+            document.querySelectorAll('.nome-input').forEach(el => {
+                el.addEventListener('change', function() {
+                    staffData[parseInt(this.dataset.index)].nome = this.value;
+                    salvarDados();
+                });
+            });
+
+            document.querySelectorAll('.id-input').forEach(el => {
+                el.addEventListener('change', function() {
+                    staffData[parseInt(this.dataset.index)].id = this.value;
+                    salvarDados();
+                });
+            });
+
+            document.querySelectorAll('.dia-input').forEach(el => {
+                el.addEventListener('change', function() {
+                    staffData[parseInt(this.dataset.index)].dia = this.value;
+                    salvarDados();
+                });
+            });
+
+            document.querySelectorAll('.total-input').forEach(el => {
+                el.addEventListener('change', function() {
+                    staffData[parseInt(this.dataset.index)].total = this.value;
+                    salvarDados();
+                });
+            });
+        }
+
+        // ============================================
+        // CRUD
+        // ============================================
+        function adicionarLinha() {
+            const novo = {
+                cargo: 'Suporte',
+                nome: 'Novo Staff',
+                id: '<@000000000000000000>',
+                dia: '0h',
+                total: '0h'
+            };
+            staffData.push(novo);
+            renderizarTabela();
+            salvarDados();
+            showToast(`✅ ${novo.nome} adicionado à staff!`, 'success');
+
+            setTimeout(() => {
+                const ultima = document.getElementById(`linha-${staffData.length - 1}`);
+                if (ultima) {
+                    ultima.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    ultima.style.background = 'rgba(255,215,0,0.08)';
+                    setTimeout(() => ultima.style.background = '', 2000);
+                }
+            }, 100);
+        }
+
+        // ============================================
+        // MODAL DE EXCLUSÃO
+        // ============================================
+        function abrirModalExcluir(index) {
+            // Verifica se o usuário marcou "Não mostrar novamente"
+            const naoMostrar = localStorage.getItem('naoMostrarExcluir') === 'true';
+
+            if (naoMostrar) {
+                // EXCLUI AUTOMATICAMENTE SEM MODAL
+                const nome = staffData[index].nome;
+                staffData.splice(index, 1);
+                renderizarTabela();
+                salvarDados();
+                showToast(`❌ ${nome} removido da staff`, 'error');
+                return;
+            }
+
+            // Se não tiver marcado, mostra o modal
+            indiceExcluir = index;
+            nomeExcluir = staffData[index].nome;
+
+            document.getElementById('modalNomeStaff').textContent = nomeExcluir;
+            document.getElementById('checkNaoMostrar').checked = false;
+            document.getElementById('modalExcluir').classList.add('active');
+        }
+
+        function cancelarExclusao() {
+            document.getElementById('modalExcluir').classList.remove('active');
+            indiceExcluir = null;
+            nomeExcluir = '';
+        }
+
+        function confirmarExclusao() {
+            if (indiceExcluir === null) return;
+
+            const naoMostrar = document.getElementById('checkNaoMostrar').checked;
+
+            // Se marcar "Não mostrar novamente", salva a preferência
+            if (naoMostrar) {
+                localStorage.setItem('naoMostrarExcluir', 'true');
+            }
+
+            // Remove o staff
+            const nome = staffData[indiceExcluir].nome;
+            staffData.splice(indiceExcluir, 1);
+            renderizarTabela();
+            salvarDados();
+
+            showToast(`❌ ${nome} removido da staff`, 'error');
+
+            // Fecha o modal
+            document.getElementById('modalExcluir').classList.remove('active');
+            indiceExcluir = null;
+            nomeExcluir = '';
+        }
+
+        // ============================================
+        // FECHAR MODAL COM ESC
+        // ============================================
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                cancelarExclusao();
+            }
+        });
+
+        // Fechar modal clicando fora
+        document.getElementById('modalExcluir').addEventListener('click', function(e) {
+            if (e.target === this) {
+                cancelarExclusao();
+            }
+        });
+
+        // ============================================
+        // EXPORTAR CSV
+        // ============================================
+        function exportarCSV() {
+            if (staffData.length === 0) {
+                showToast('❌ Não há dados para exportar!', 'warning');
+                return;
+            }
+
+            let csv = 'Cargo,Nome Staff,ID Discord,Trabalho por Dia,Total Trabalhado\n';
+            staffData.forEach(s => {
+                csv += `${s.cargo},${s.nome},${s.id},${s.dia},${s.total}\n`;
+            });
+
+            const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            const data = new Date().toLocaleDateString('pt-BR').replace(/\//g, '-');
+            link.download = `staff_gta_rp_${data}.csv`;
+            link.click();
+            URL.revokeObjectURL(link.href);
+
+            showToast(`📥 ${staffData.length} membros exportados!`, 'success');
+        }
+
+        // ============================================
+        // IMPORTAR CSV
+        // ============================================
+        function importarCSV(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                try {
+                    const lines = e.target.result.split('\n').filter(line => line.trim() !== '');
+                    if (lines.length < 2) {
+                        showToast('❌ Arquivo CSV inválido!', 'error');
+                        return;
+                    }
+
+                    const dados = [];
+                    for (let i = 1; i < lines.length; i++) {
+                        const cols = lines[i].split(',');
+                        if (cols.length >= 5) {
+                            dados.push({
+                                cargo: cols[0].trim(),
+                                nome: cols[1].trim(),
+                                id: cols[2].trim(),
+                                dia: cols[3].trim(),
+                                total: cols[4].trim()
+                            });
+                        }
+                    }
+
+                    if (dados.length === 0) {
+                        showToast('❌ Nenhum dado válido encontrado!', 'error');
+                        return;
+                    }
+
+                    if (confirm(`📤 Importar ${dados.length} membros?\nOs dados atuais serão substituídos!`)) {
+                        staffData = dados;
+                        renderizarTabela();
+                        salvarDados();
+                        showToast(`✅ ${dados.length} membros importados!`, 'success');
+                    }
+                } catch (err) {
+                    showToast(`❌ Erro ao importar: ${err.message}`, 'error');
+                }
+            };
+            reader.readAsText(file);
+            event.target.value = '';
+        }
+
+        // ============================================
+        // RESETAR
+        // ============================================
+        function resetarDados() {
+            if (confirm('🔄 Resetar para os dados padrão?\nTodos os dados atuais serão perdidos!')) {
+                staffData = JSON.parse(JSON.stringify(DADOS_PADRAO));
+                renderizarTabela();
+                salvarDados();
+                showToast('🔄 Dados resetados para o padrão!', 'info');
+            }
+        }
+
+        // ============================================
+        // PERSISTÊNCIA
+        // ============================================
+        function salvarDados() {
+            try {
+                localStorage.setItem('staffDataGTA', JSON.stringify(staffData));
+            } catch (e) {
+                console.warn('Erro ao salvar:', e);
+            }
+        }
+
+        function carregarDados() {
+            try {
+                const saved = localStorage.getItem('staffDataGTA');
+                if (saved) {
+                    const parsed = JSON.parse(saved);
+                    if (Array.isArray(parsed) && parsed.length > 0) {
+                        staffData = parsed;
+                        renderizarTabela();
+                        return;
+                    }
+                }
+            } catch (e) {
+                console.warn('Erro ao carregar:', e);
+            }
+            staffData = JSON.parse(JSON.stringify(DADOS_PADRAO));
+            renderizarTabela();
+        }
+
+        // ============================================
+        // INICIALIZAÇÃO
+        // ============================================
+        carregarDados();
+
+        // Auto-save a cada 5 segundos
+        setInterval(salvarDados, 5000);
+
+        // Salvar ao fechar
+        window.addEventListener('beforeunload', salvarDados);
+
+        console.log('🏙️ Staff GTA RP v3.0 carregado!');
+        console.log(`📋 ${staffData.length} membros na staff`);
+        console.log('💡 Ao excluir, marque "Não mostrar novamente" para pular a confirmação.');
+    </script>
+
+</body>
+</html>
